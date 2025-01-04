@@ -8,7 +8,7 @@ app.use(cors());
 
 app.get('/', (req: Request, res: Response) => {
   res.send(
-    'Hello developers, I am Ishtiak From Rangpur, I am developing PH-University 🦄!',
+    'Hello developers, I am Ishtiak From Rangpur, I am developing Blog server assignment 🦄!',
   );
 });
 

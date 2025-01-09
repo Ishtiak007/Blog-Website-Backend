@@ -1,19 +1,32 @@
-/* eslint-disable no-console */
 import mongoose from 'mongoose';
-import app from './app';
+import { Server } from 'http';
 import config from './app/config';
+import app from './app';
 
-const { port, databaseURI } = config;
+let server: Server;
 
-async function connectServer() {
+async function main() {
   try {
-    await mongoose.connect(databaseURI as string);
-    app.listen(port, () => {
-      console.log(`PH-University server running on port ${port}`);
+    await mongoose.connect(config.database_url as string);
+    server = app.listen(config.port, () => {
+      console.log(`Blog Server is running on port: ${config.port}`);
     });
-  } catch (error) {
-    console.log(error);
+  } catch (err) {
+    console.log(err);
   }
 }
 
-connectServer();
+main();
+
+process.on('unhandledRejection', () => {
+  if (server) {
+    server.close(() => {
+      process.exit(1);
+    });
+  }
+  process.exit(1);
+});
+
+process.on('uncaughtException', () => {
+  process.exit(1);
+});

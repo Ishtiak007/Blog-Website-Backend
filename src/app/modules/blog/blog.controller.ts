@@ -29,7 +29,28 @@ const getAllBlogs: RequestHandler = catchAsync(async (req, res) => {
   });
 });
 
+// update single blog
+const updateBlog: RequestHandler = catchAsync(async (req, res) => {
+  const id = req.params.id;
+  const updatedData = req.body;
+  const userEmail = req?.user?.email;
+
+  const result = await BlogServices.updateBlogIntoDB(
+    id,
+    userEmail,
+    updatedData,
+  );
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: 'Blog updated successfully',
+    data: result,
+  });
+});
+
 export const BlogControllers = {
   createBlog,
   getAllBlogs,
+  updateBlog,
 };

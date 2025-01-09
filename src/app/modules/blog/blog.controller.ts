@@ -8,7 +8,6 @@ const createBlog: RequestHandler = catchAsync(async (req, res) => {
   const userEmail = req?.user?.email;
 
   const result = await BlogServices.createBlogIntoDB(req.body, userEmail);
-
   sendResponse(res, {
     statusCode: 201,
     success: true,

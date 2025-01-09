@@ -1,5 +1,7 @@
+import { QueryBuilder } from '../../builder/QueryBuilder';
 import { AppError } from '../../errors/AppError';
 import { User } from '../user/user.model';
+import { blogSearchableFields } from './blog.constant';
 import { TBlog } from './blog.interface';
 import { Blog } from './blog.model';
 
@@ -17,6 +19,20 @@ const createBlogIntoDB = async (payload: TBlog, userEmail: string) => {
   return result;
 };
 
+// Get all blog into Database
+const getAllBlogsFromDB = async (query: Record<string, unknown>) => {
+  const blogQuery = new QueryBuilder(Blog.find().populate('author'), query)
+    .search(blogSearchableFields)
+    .filter()
+    .sortBy();
+  const result = await blogQuery.modelQuery;
+  if (!result.length) {
+    throw new AppError(404, 'No blogs found!');
+  }
+  return result;
+};
+
 export const BlogServices = {
   createBlogIntoDB,
+  getAllBlogsFromDB,
 };

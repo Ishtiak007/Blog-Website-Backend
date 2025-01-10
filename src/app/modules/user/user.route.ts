@@ -21,6 +21,14 @@ router.post(
   UserControllers.loginUser,
 );
 
+// Update user
+router.patch(
+  '/users/:userId/block',
+  auth(USER_ROLE.admin),
+  validateRequest(userValidationSchema.updateRegisterUserValidationSchema),
+  UserControllers.blockUser,
+);
+
 // Delete user
 router.delete('/blogs/:id', auth(USER_ROLE.admin), UserControllers.deleteBlog);
 

@@ -3,8 +3,6 @@ import { AppError } from '../../errors/AppError';
 import { TLoginUser, TUser } from './user.interface';
 import jwt from 'jsonwebtoken';
 import { User } from './user.model';
-import { sendResponse } from '../../utils/sendResponse';
-import { catchAsync } from '../../utils/catchAsync';
 import { Blog } from '../blog/blog.model';
 
 // Register User Into DB
@@ -48,7 +46,6 @@ const loginUser = async (payload: TLoginUser) => {
 // delete blog from DB
 const deleteBlogFromDB = async (id: string) => {
   const blog = await Blog.findById(id);
-
   if (!blog) {
     throw new AppError(404, 'Blog not found!');
   }

@@ -69,8 +69,39 @@ const updateBlogIntoDB = async (
   return result;
 };
 
+// delete blog service
+const deleteBlogFromDB = async (id: string, userEmail: string) => {
+  // check user is exists
+  const user = await User.isUserExists(userEmail);
+
+  if (!user) {
+    throw new AppError(403, 'User not found! You cannot delete the blog.');
+  }
+
+  // check blog is exists
+  const blog = await Blog.findById(id);
+
+  if (!blog) {
+    throw new AppError(404, 'Blog not found!');
+  }
+
+  // check owner
+  if (user._id.toString() !== blog?.author.toString()) {
+    throw new AppError(401, 'You are not authorized to delete this blog!');
+  }
+
+  const result = await Blog.findByIdAndUpdate(
+    id,
+    { isDeleted: true },
+    { new: true, runValidators: true },
+  );
+
+  return result;
+};
+
 export const BlogServices = {
   createBlogIntoDB,
   getAllBlogsFromDB,
   updateBlogIntoDB,
+  deleteBlogFromDB,
 };

@@ -32,7 +32,21 @@ const loginUser: RequestHandler = catchAsync(async (req, res) => {
   });
 });
 
+// User delete
+const deleteBlog: RequestHandler = catchAsync(async (req, res) => {
+  const id = req.params.id;
+  await UserServices.deleteBlogFromDB(id);
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: 'Blog deleted successfully',
+    data: {},
+  });
+});
+
 export const UserControllers = {
   registerUser,
   loginUser,
+  deleteBlog,
 };

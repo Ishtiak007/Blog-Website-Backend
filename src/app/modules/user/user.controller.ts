@@ -32,7 +32,7 @@ const loginUser: RequestHandler = catchAsync(async (req, res) => {
   });
 });
 
-// update
+// update (block a user)
 const blockUser: RequestHandler = catchAsync(async (req, res) => {
   const userId = req.params.userId;
   const updatedData = req.body;

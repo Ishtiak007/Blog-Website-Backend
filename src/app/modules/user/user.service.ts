@@ -43,6 +43,31 @@ const loginUser = async (payload: TLoginUser) => {
   };
 };
 
+// update user form DB
+const blockUserIntoDB = async (userId: string, payload: Partial<TUser>) => {
+  const user = await User.findOne({ _id: userId });
+
+  if (!user) {
+    throw new AppError(404, 'User not found!');
+  }
+  if (user?.role !== 'user') {
+    throw new AppError(403, "Only 'user' roles can be blocked!");
+  }
+
+  if (user.isBlocked === true) {
+    throw new AppError(
+      400,
+      'This user is already blocked and cannot be blocked again.',
+    );
+  }
+
+  const result = await User.findByIdAndUpdate(userId, payload, {
+    new: true,
+    runValidators: true,
+  });
+  return result;
+};
+
 // delete blog from DB
 const deleteBlogFromDB = async (id: string) => {
   const blog = await Blog.findById(id);
@@ -56,5 +81,6 @@ const deleteBlogFromDB = async (id: string) => {
 export const UserServices = {
   registerUserIntoDB,
   loginUser,
+  blockUserIntoDB,
   deleteBlogFromDB,
 };

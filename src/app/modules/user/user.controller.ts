@@ -1,6 +1,7 @@
 import { RequestHandler } from 'express';
 import { catchAsync } from '../../utils/catchAsync';
 import { sendResponse } from '../../utils/sendResponse';
+import { UserServices } from './user.service';
 
 // user register
 const registerUser: RequestHandler = catchAsync(async (req, res) => {

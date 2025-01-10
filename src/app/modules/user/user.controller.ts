@@ -32,6 +32,20 @@ const loginUser: RequestHandler = catchAsync(async (req, res) => {
   });
 });
 
+// update
+const blockUser: RequestHandler = catchAsync(async (req, res) => {
+  const userId = req.params.userId;
+  const updatedData = req.body;
+  const result = await UserServices.blockUserIntoDB(userId, updatedData);
+
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: 'User blocked successfully',
+    data: result,
+  });
+});
+
 // User delete
 const deleteBlog: RequestHandler = catchAsync(async (req, res) => {
   const id = req.params.id;
@@ -48,5 +62,6 @@ const deleteBlog: RequestHandler = catchAsync(async (req, res) => {
 export const UserControllers = {
   registerUser,
   loginUser,
+  blockUser,
   deleteBlog,
 };

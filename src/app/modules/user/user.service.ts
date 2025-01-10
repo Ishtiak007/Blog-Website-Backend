@@ -1,5 +1,7 @@
+import config from '../../config';
 import { AppError } from '../../errors/AppError';
-import { TUser } from './user.interface';
+import { TLoginUser, TUser } from './user.interface';
+import jwt from 'jsonwebtoken';
 import { User } from './user.model';
 
 // Register User Into DB
@@ -13,6 +15,34 @@ const registerUserIntoDB = async (payload: TUser) => {
   return result;
 };
 
+// User login into db
+const loginUser = async (payload: TLoginUser) => {
+  const user = await User.isUserExists(payload?.email);
+  if (!user) {
+    throw new AppError(404, 'The user is not found!');
+  }
+
+  if (user.isBlocked === true) {
+    throw new AppError(403, 'Your account has been blocked.');
+  }
+  if (!(await User.isPasswordMatched(payload?.password, user?.password))) {
+    throw new AppError(401, 'Invalid credentials!');
+  }
+  const jwtPayload = {
+    email: user?.email,
+    role: user?.role,
+  };
+
+  const token = jwt.sign(jwtPayload, config.access_token_secret as string, {
+    expiresIn: config.access_token_expires_in,
+  });
+
+  return {
+    token,
+  };
+};
+
 export const UserServices = {
   registerUserIntoDB,
+  loginUser,
 };

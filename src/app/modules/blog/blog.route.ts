@@ -7,6 +7,7 @@ import { BlogControllers } from './blog.controller';
 
 const router = express.Router();
 
+// blog post
 router.post(
   '/',
   auth(USER_ROLE.user),
@@ -14,13 +15,18 @@ router.post(
   BlogControllers.createBlog,
 );
 
+// get all blog
 router.get('/', BlogControllers.getAllBlogs);
 
+// update
 router.patch(
   '/:id',
   auth(USER_ROLE.user),
   validateRequest(blogValidationSchema.updateBlogValidationSchema),
   BlogControllers.updateBlog,
 );
+
+// delete blog
+router.delete('/:id', auth(USER_ROLE.user), BlogControllers.deleteBlog);
 
 export const BlogRoutes = router;

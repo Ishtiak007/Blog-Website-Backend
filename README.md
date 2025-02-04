@@ -37,7 +37,7 @@ This **interactive blog platform** is built for **content creation and discovery
 
 ### 🔗 Live Deployment
 
-- **Live Site**: [Visit the Deployment](comming)
+- **Live Site**: [Visit the Deployment](https://level-2-assignment-3-blog-server.vercel.app/)
 
 ## 🔑 Key Features
 

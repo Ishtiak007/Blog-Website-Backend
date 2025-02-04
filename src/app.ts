@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-  res.send('Hello, Server is running.');
+  res.send('Hello,I am Ishtiak. From Rangpur. My Blog Server is running⚡');
 });
 app.use('/api', router);
 app.use(globalErrorHandler);

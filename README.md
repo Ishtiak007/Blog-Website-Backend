@@ -99,3 +99,88 @@ npm install
 # or
 yarn install
 ```
+
+### 4. Setup Environment Variables
+
+Create a `.env` file in the root of the project and add the following environment variables:
+
+```bash
+NODE_ENV=development
+
+PORT=5000
+
+DATABASE_URL=mongodb+srv://Blog-Assignment-Server:NZE8dUQ1OqFG3yeC@cluster0.sjppj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+
+BCRYPT_SALT_ROUNDS=12
+
+ACCESS_TOKEN_SECRET=d7aedf6b3aebddb9b16e838047f60a9511f468104b23f247ef2c7ba7da0f31a8e46ee084da5d70c88519324dcb1b565c1aebdbe8a9c74ec4fb3792ee9075db99
+
+ACCESS_TOKEN_EXPIRES_IN=30d
+```
+
+### 5. Admin Login Credentials
+
+To access the admin panel, use the following credentials:
+
+- **Email:** `admin@gmail.com`
+- **Password:** `admin123`
+
+### 6. Run the Application
+
+Start the development server:
+
+```bash
+npm run start:dev
+```
+
+Your application should now be running at `http://localhost:5000`.
+
+### 7. Access the Application
+
+- Visit the site in your browser at `http://localhost:5000`.
+- You can now use the application to create, update, delete, and manage blogs based on the user roles.
+
+### 8. Additional Notes
+
+- To access protected routes, use Bearer Tokens for authentication.
+
+## ⚙️ Technologies Used
+
+This project is built using technologies that ensure smooth performance and easy development:
+
+### Backend
+
+- **Node.js**: Runtime environment for executing JavaScript server-side.
+- **Express.js**: Web framework for building RESTful APIs.
+- **MongoDB**: NoSQL database for storing data.
+- **Mongoose**: ODM (Object Data Modeling) library for MongoDB.
+- **TypeScript**: Typed superset of JavaScript for maintaining type safety.
+
+### Authentication & Authorization
+
+- **JWT (JSON Web Tokens)**: Secure authentication and user verification.
+- **Bearer Token**: A method of transmitting the JWT in the `Authorization` header to protect routes and ensure only authorized access to APIs.
+
+### Validation
+
+- **Zod**: Schema-based data validation.
+
+### Testing & Development Tools
+
+- **Postman**: API testing and debugging.
+- **Nodemon**: Auto-restarting for development.
+- **ESLint**: Code linting to enforce consistent coding standards.
+- **Prettier**: Code formatter to maintain clean and readable code.
+
+### Deployment
+
+- **Vercel**: For seamless deployment and hosting.
+- **dotenv**: Environment variable management.
+
+### Other Tools
+
+- **bcryptjs**: For hashing passwords securely.
+- **CORS**: Middleware to enable cross-origin resource sharing.
+
+These technologies work together to create a secure, scalable, and user-friendly blogging platform.

@@ -34,3 +34,38 @@ This **interactive blog platform** is built for **content creation and discovery
 - **Search**: Find blogs by `title` or `content`.
 - **Filter**: Narrow down blogs by `author ID`.
 - **Sort**: Organize blogs using various sorting criteria for improved navigation.
+
+### 🔗 Live Deployment
+
+- **Live Site**: [Visit the Deployment](comming)
+
+## 🔑 Key Features
+
+### 👥 User Roles
+
+- **Admin**:
+  - Can delete any blog.
+  - Can block specific users to restrict access.
+- **User**:
+  - Can create, update, and delete only their own blogs.
+
+### 🔐 Authentication & Authorization
+
+- Secure login using **Bearer Token** to access protected routes.
+- Role-based permissions ensure proper access control.
+
+### 📝 Blog Management
+
+- Users can manage their own blogs (**create, update, delete**).
+- Admins have full control over all blogs on the platform.
+
+### 🚀 User Management
+
+- Admins can **block users**, preventing further access.
+- Users can interact with their content unless blocked.
+
+### 🔍 Search, Filter & Sort
+
+- **Search**: Find blogs by `title` or `content`.
+- **Filter**: View blogs based on `author ID`.
+- **Sort**: Organize blogs using various sorting criteria for better content discovery.

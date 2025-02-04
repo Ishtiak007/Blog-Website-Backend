@@ -69,3 +69,33 @@ This **interactive blog platform** is built for **content creation and discovery
 - **Search**: Find blogs by `title` or `content`.
 - **Filter**: View blogs based on `author ID`.
 - **Sort**: Organize blogs using various sorting criteria for better content discovery.
+
+## 🛠️ Installation and Setup
+
+To get started with the project locally, follow these steps:
+
+### 1. Clone the Repository
+
+First, clone the repository to your local machine:
+
+```bash
+git clone https://github.com/Ishtiak007/Blog-Website-Backend.git
+```
+
+### 2. Navigate to the Project Folder
+
+Go to the project directory:
+
+```bash
+cd Blog-Website-Backend
+```
+
+### 3. Install Dependencies
+
+Install the required dependencies using npm or yarn:
+
+```bash
+npm install
+# or
+yarn install
+```

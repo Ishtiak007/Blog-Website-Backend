@@ -216,3 +216,20 @@ This project is built using technologies that ensure smooth performance and easy
 - **CORS**: Middleware to enable cross-origin resource sharing.
 
 These technologies work together to create a secure, scalable, and user-friendly blogging platform.
+
+### 📝 Access Control
+
+- **🔓 Public Access**: Available to all users without authentication.
+- **🔐 Admin Only**: Restricted to admin users only.
+- **✍️ Blog Owner Only**: Actions allowed only for the blog's creator.
+- **👑 Admin / Owner**: Accessible to both admins and the blog owner.
+
+## 📩 Get in Touch
+
+For any questions, feedback, or collaboration opportunities, feel free to connect:
+
+- 📧 **Email**: [ishtiakahmed18899@gmail.com](mailto:ishtiakahmed18899@gmail.com)
+- 🖥 **GitHub**: [Ishtiak Ahmed](https://github.com/Ishtiak007)
+- 💼 **LinkedIn**: [Ishtiak Ahmed](https://www.linkedin.com/in/ishtiak-ahmed-2846722a5/)
+
+Looking forward to connecting with you! 😊

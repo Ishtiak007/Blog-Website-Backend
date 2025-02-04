@@ -70,6 +70,38 @@ This **interactive blog platform** is built for **content creation and discovery
 - **Filter**: View blogs based on `author ID`.
 - **Sort**: Organize blogs using various sorting criteria for better content discovery.
 
+## 📁 Folder Structure
+
+Below is the folder structure for the project:
+
+```bash
+├── dist/
+│   ├── app/
+│   ├── app.js
+│   └── server.js
+├── node_modules/
+├── src/
+│   ├── app/
+│   │   ├── builder/
+│   │   ├── config/
+│   │   ├── errors/
+│   │   ├── interface/
+│   │   ├── middleware/
+│   │   ├── modules/
+│   │   │   ├── blog/
+│   │   │   └── user/
+│   │   ├── routes/
+│   │   ├── utils/
+│   ├── app.ts
+│   └── server.ts
+├── .env
+├── .gitignore
+├── .prettierignore
+├── .prettierrc
+├── .eslint.config.mjs
+└── etc
+```
+
 ## 🛠️ Installation and Setup
 
 To get started with the project locally, follow these steps:
